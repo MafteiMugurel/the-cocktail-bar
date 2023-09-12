@@ -5,6 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import { Link } from "react-router-dom";
 import Cocktail from "./Cocktail";
 import { cocktailsMock } from "../mock";
+import "./Home.css";
 
 interface Cocktail {
   id: string;
@@ -44,10 +45,12 @@ function Home() {
       {cocktailsData.length > 0 &&
         cocktailsData.map((cocktail: Cocktail) => {
           return (
-            <Card sx={{ maxWidth: 345 }}>
-              <CardMedia component="img" height="450" image={cocktail.image} />
-              <CardContent>{cocktail.title}</CardContent>
-              <Link to={"/cocktail/" + cocktail.id}>See recipe</Link>
+            <Card className="home-card" sx={{ maxWidth: 200 }}>
+              <CardMedia component="img" height="260" image={cocktail.image} />
+              <CardContent className="home-title">{cocktail.title}</CardContent>
+              <Link className="home-link" to={"/cocktail/" + cocktail.id}>
+                See recipe
+              </Link>
             </Card>
           );
         })}

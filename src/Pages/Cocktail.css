@@ -1,0 +1,31 @@
+.cocktail-box {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.cocktail-link {
+  font-size: 20px;
+  padding: 20px 190px;
+  text-decoration: none;
+  font-weight: bold;
+  color: green;
+}
+.cocktail-image {
+  max-height: 500px;
+}
+
+.cocktail-title {
+  font-size: 30px;
+  display: flex;
+  font-weight: bold;
+  margin-left: 100px;
+}
+.cocktail-description {
+  padding: 10px;
+  text-align: justify;
+}
+.cocktail-step {
+  text-decoration: none;
+  font-weight: bold;
+}

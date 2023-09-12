@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import "./Cocktail.css";
 import { Link, useParams } from "react-router-dom";
 import { cocktailMock } from "../mock";
+import { Box, Card, CardContent, CardMedia } from "@mui/material";
 
 export interface CocktailDetails {
   id: string;
@@ -42,9 +44,43 @@ function Cocktail() {
   }, []);
 
   return (
-    <div>
-      {id}
-      <Link to="/">Back to Cocktails</Link>
+    <div className="cocktail-box">
+      <Link className="cocktail-link" to="/">
+        Back to Cocktails
+      </Link>
+      <Card sx={{ maxWidth: 500 }}>
+        <CardMedia
+          className="cocktail-image"
+          component="img"
+          image={cocktailMock.image}
+        />
+        <CardContent className="cocktail-title">
+          {cocktailMock.title}
+        </CardContent>
+        <CardContent className="cocktail-description">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          {cocktailMock.description}
+        </CardContent>
+        <CardContent>
+          <ul>
+            {cocktailMock.ingredients.map((ingredient: string) => {
+              return <li>{ingredient}</li>;
+            })}
+          </ul>
+        </CardContent>
+        <CardContent>
+          {cocktailMock.method.map((step: { [key: string]: string }) => {
+            return (
+              <div>
+                <div className="cocktail-step">{Object.keys(step)[0]}</div>
+                <div>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{step[Object.keys(step)[0]]}
+                </div>
+              </div>
+            );
+          })}
+        </CardContent>
+      </Card>
     </div>
   );
 }
